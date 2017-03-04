@@ -1,0 +1,11 @@
+# Setup
+title:        Staticman + reCAPTCHA
+tagline:      A responsive theme for your project on GitHub Pages
+baseurl:      ""
+paginate:     1
+
+gems:
+  - jekyll-paginate
+
+#Others
+markdown: kramdown

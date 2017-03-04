@@ -1,0 +1,57 @@
+---
+layout: default
+title: {{ site.name }}
+---
+<div id="home">
+  <h2>Entries</h2>
+  <table>
+    <thead>
+      <th>Developer's name</th>
+      <th>Programming language</th>
+      <th>Comment</th>
+    </thead>
+    <tbody>
+      {% assign entries = site.data.entries | sort %}
+      {% for entry in entries %}
+        <tr>
+          <td>{{ entry[1].name }}</td>
+          <td>{{ entry[1].language }}</td>
+          <td>{{ entry[1].message }}</td>
+        </tr>
+      {% endfor %}  
+    </tbody>
+  </table>
+
+  <h2>Add new entry</h2>
+  <form method="post" action="https://dev.staticman.net/v2/entry/eduardoboucas/staticman-recaptcha/master/comments">
+    <label for="name">Name</label>
+    <input id="name" type="text" name="fields[name]" placeholder="John Doe">
+
+    <label for="email">Favourite programming language</label>
+    <select name="fields[language]">
+      <option value="Ruby">Ruby</option>
+      <option value="JavaScript">JavaScript</option>
+      <option value="Python">Python</option>
+      <option value="PHP">PHP</option>
+      <option value="Java">Java</option>
+      <option value="Go">Go</option>
+      <option value="Rust">Rust</option>
+      <option value="C">C</option>
+    </select>
+    
+    <label for="message">Comment</label>
+    <textarea id="message" name="fields[message]" placeholder="Here's the thing..."></textarea>
+
+    <input type="hidden" name="options[redirect]" value="https://recaptcha-demo.staticman.net/thankyou">
+    <input type="hidden" name="options[redirectError]" value="https://recaptcha-demo.staticman.net/error">
+
+    <input type="hidden" name="options[reCaptcha][siteKey]" value="6LdimBcUAAAAANX016gDfwSdk0CXduIsYGj9VhSY">
+    <input type="hidden" name="options[reCaptcha][secret]" value="z9d1HgPjpT4S6V28tRMylatjh80fWSR6CW94GaEbU1FLO9RUELEiL3W91xrrKXAyb6PpWe485OmF/FtMnbNnIjZjHZtf/1Zlb0adjT582qq3m+YvEhUVHrDf0w74PJ+AoaLM8MAMVU/ZM0mRNp/WnzVeVx2I+ROs5mTMqbeyKfo=">
+
+    <div class="g-recaptcha" data-sitekey="6LdimBcUAAAAANX016gDfwSdk0CXduIsYGj9VhSY"></div>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <script src='https://www.google.com/recaptcha/api.js'></script>
+</div>
