@@ -1,0 +1,6 @@
+_id: ce5258d0-1b69-11e9-ba78-3d3ffff9172b
+name: Oh Boy
+language: PHP
+message: >-
+  <script>alert('Oh boy, this is painful. Why oh why do you not filter
+  inputs?');</script>
